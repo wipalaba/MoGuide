@@ -22,7 +22,6 @@ mongoose.connect('mongodb://localhost:27017/moguide', { useNewUrlParser: true })
 
 
     
-var app = express();
 https.createServer({
    key: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/cert.pem')
