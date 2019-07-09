@@ -2,7 +2,6 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var path = require('path');
 
 var app = express();
 
@@ -26,15 +25,9 @@ app.use((req, res, next) => {
 });
 
 //rutas
-
 app.use('/api',user_routes);
 app.use('/api',prov_routes);
 app.use('/api',tour_routes);
-app.use('/',express.static('client', {redirect:false}));
-
-app.get('*',function(req,res,next){
-	res.sendFile(path.resolve('client/index.html'));
-});
 
 //exportar
 module.exports = app;
