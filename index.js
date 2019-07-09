@@ -5,7 +5,6 @@ var app = require('./app');
 var PORT = 3800;
 const fs = require('fs');
 const https = require('https');
-const app = express();
 
 //Conexion BD
 mongoose.Promise = global.Promise;
