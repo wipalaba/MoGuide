@@ -18,8 +18,8 @@ mongoose.connect('mongodb://localhost:27017/moguide', { useNewUrlParser: true })
 		//		console.log("Servidor Corriendo en http://localhost:3800");
 		//	})
 
-		//})
-		//.catch(err => console.log(err));
+		})
+		.catch(err => console.log(err));
 
 
 
