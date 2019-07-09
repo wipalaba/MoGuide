@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 var app = require('./app');
-var port = 3800;
+var PORT = 3800;
 const fs = require('fs');
 const https = require('https');
 const app = express();
@@ -22,15 +22,14 @@ mongoose.connect('mongodb://localhost:27017/moguide', { useNewUrlParser: true })
 		.catch(err => console.log(err));
 
 
-
-app.get('/', (req, res) => {
-  res.send('Hello HTTPS!')
-})
-
+    
+var app = express();
 https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/cert.pem'),
-  ca: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/chain.pem')
-}, app).listen(3800, () => {
-  console.log('Listening...')
-})
+   key: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/cert.pem')
+}, app).listen(PORT, function(){
+    console.log("My https server listening on port " + PORT + "...");
+});
+app.get('/foo', function(req, res){
+    console.log('Hello, I am foo.');
+});
