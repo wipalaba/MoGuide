@@ -3,8 +3,8 @@
 var mongoose = require('mongoose');
 var app = require('./app');
 var port = 3800;
-const fs = require('fs')
-const https = require('https')
+const fs = require('fs');
+const https = require('https');
 const app = express();
 
 //Conexion BD
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 })
 
 https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/key.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/cert.pem'),
   ca: fs.readFileSync('/etc/letsencrypt/live/wp.larasys.cl/chain.pem')
 }, app).listen(3800, () => {
